@@ -1,0 +1,94 @@
+
+window.Cliengo = {}; //all Cliengo configs, functions and params goes into this object
+
+window.Cliengo.chatConfig = {
+  "companyId" : "5e0a34fde4b0dabeafa1661c",
+  "websiteId" : "5e0a353ce4b09b87f5c92c2e",
+  "whiteLabelId" : "5ac52cf3e4b05d3a6cdb8307",
+  "whiteLabelName" : "",
+  "googleAdWordsConversionId" : "",
+  "googleAnalyticsId" : "",
+  "chatbotName" : "Maria",
+
+    "phone" : "",
+  "title": "toproller.cl",
+  "businessHoursConfiguration" : {"enabled_channels":{"WHATSAPP_CHAT":false,"CHATBOT":false,"WHATSAPP_WIDGET":false,"WHATSAPP":false,"WEB_CHAT":false},"initial_message":"Hola, en este momento nuestros agentes no se encuentran conectados, puedes dejarnos tus datos y te contactarán en la mayor brevedad.","time_zone":"-3:00"},
+  "conversionPixels" : "",
+  "customFeedbackImageUrl" : "",
+  "widgetIcon" : "CLIENGO_ORIGINAL",
+   "widgetStyle" : "ICON",
+  "chatWindowColor" : "#5ba0d0",
+  "cliengoMeetings" : "false",
+  "chatWindowTitle" : "Chat de ventas",
+  "chatWindowInputPlaceholder" : "Escribe un mensaje...",
+  "chatInitialMessage" : "Hola, soy un asistente virtual, de qué manera te puedo ayudar?",
+  "chatIsWritingMessage" : " está escribiendo...",
+  "chatSaluteTimeInSeconds" : 5,
+  "avatarImgUrl": "",
+  "labs":{
+      },
+  "companyLabs": "cvanalysis,slow_mail,integration_admin,reports_beta,just_bubble",
+  "planType": "CLIENGO_PROFESSIONAL",
+  "vertical": "HOME_DECOR",
+    "formHooksEnabled" : false,
+  "automaticRemarketingEnabled" : true,
+  "chatEnabled" : true,
+        "poweredBy":{
+          "text": "Usamos Cliengo ",
+          "link": "https://www.cliengo.com/a/norte.digital.wl?utm_source=usamos_cliengo&utm_medium=chat&redir_url=https%3A%2F%2Fchat.cliengo.com%2Fnorte-digital",
+          "img":  "https://res.cloudinary.com/hbrrdozyj/image/upload/v1603736815/Usamos-Cliengo_knac91.png"
+      },
+    "customPoweredByUtms": "",
+  "softDisable": false,
+  "hasConvertedLead" : false,   "CDN_URL_DOMAIN" : "//d47r8x2gwo1do.cloudfront.net",
+        "WS_CHATBOT_URL" : "wss://chatbot.cliengo.com",
+      "sessionPath" : "/s/5e0a34fde4b0dabeafa1661c/5e0a353ce4b09b87f5c92c2e",
+  "cacheVersion" : "1438-07062065",
+  "debug" : false,
+  "whatsAppActive": false,
+  "lang" : "es",
+  "widgetVersion" : "2.0"
+}
+
+
+var host = 'https://lw.cliengo.com';
+
+var mainClgoScriptId = 'mainclgo';
+var mainWspScriptId = 'mainWsp';
+var mainclgoScriptExists = document.querySelector('script[id="' + mainClgoScriptId + '"]');
+
+loadMain();
+
+function loadMain() {
+  if(mainclgoScriptExists) {
+    console.warn('Cuidado! ya existe un script con id "' + mainClgoScriptId + '", ' +
+      'probablemente el script del chat este duplicado en ese sitio!');
+  }
+
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.id = mainClgoScriptId;
+  s.src = host + '/mainclgo.bundle.js';
+  s.setAttribute('data-company-id', '5e0a34fde4b0dabeafa1661c');
+  s.setAttribute('data-source-id', '5e0a353ce4b09b87f5c92c2e');
+  s.setAttribute('data-host', host);
+  s.async = true;
+  document.body.appendChild(s);
+  console.debug('clgo loaded');
+
+  loadWhatsAppWidget();
+}
+
+function onCommonsLoad() {
+  console.log(commonsClgoScriptId + ' script loaded successfuly.');
+  loadMain();
+}
+
+// WhatsApp functions
+function setwhatsappConfig() {
+  }
+
+function loadWhatsAppWidget() {
+  }
+
+
